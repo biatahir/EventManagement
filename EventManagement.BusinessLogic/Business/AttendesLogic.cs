@@ -12,6 +12,7 @@ namespace EventManagement.BusinessLogic.Business
 {
    public class AttendesLogic:BaseLogic
     {
+        //testinfnsdfsdf
         public async Task<List<AttendesDTO>> GetAttendes() {
             return await Db.Attendes.Select(x=>new AttendesDTO {
                  ID = x.ID,

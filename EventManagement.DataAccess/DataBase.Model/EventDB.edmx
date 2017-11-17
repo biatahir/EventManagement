@@ -1,0 +1,1886 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Event_ManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activites">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Thumbnail" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreateON" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="ActivityTypeid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActivityTPYES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attendes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Thumbnail" Type="varchar" MaxLength="500" />
+          <Property Name="FacebookURL" Type="varchar" MaxLength="1000" />
+          <Property Name="TwitterURL" Type="varchar" MaxLength="1000" />
+          <Property Name="InstagramURL" Type="varchar" MaxLength="1000" />
+          <Property Name="AddedON" Type="datetime" />
+          <Property Name="AddedBY" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="DeviceToken" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="AttendesEvents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttendesID" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BookMark">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityID" Type="int" Nullable="false" />
+          <Property Name="AttendesID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FloorMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="PhotoURL" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="FloorRegionMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="FMid" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="X" Type="int" />
+          <Property Name="Y" Type="int" />
+          <Property Name="Width" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="height" Type="decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="ForumSocialComments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="AttendesID" Type="int" Nullable="false" />
+          <Property Name="Comments" Type="varchar" MaxLength="500" />
+          <Property Name="ApprovedON" Type="datetime" />
+          <Property Name="ApprovedBY" Type="int" />
+          <Property Name="CommentedON" Type="datetime" />
+          <Property Name="ReplyerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="500" />
+          <Property Name="AddedON" Type="datetime" />
+          <Property Name="AddedBY" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="AttendesID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="SectionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" />
+          <Property Name="URL" Type="varchar" MaxLength="1000" />
+          <Property Name="UploadON" Type="datetime" />
+          <Property Name="UploadBY" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="PostType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostUserLike">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+          <Property Name="AttendesID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QRCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="AtivitityID" Type="int" Nullable="false" />
+          <Property Name="WebURL" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="GeneratedON" Type="datetime" />
+          <Property Name="GeneratedBY" Type="int" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="QRHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QRid" Type="int" Nullable="false" />
+          <Property Name="AttendesID" Type="int" Nullable="false" />
+          <Property Name="CommentON" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sections">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SocialForum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="1000" />
+          <Property Name="UploadON" Type="datetime" />
+          <Property Name="UploadBY" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="PostTypeid" Type="int" Nullable="false" />
+          <Property Name="ApprovedON" Type="datetime" />
+          <Property Name="ApprovedBY" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="TotalLikes" Type="int" />
+          <Property Name="AttendesID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sponsors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Thumbnail" Type="varchar" MaxLength="500" />
+          <Property Name="DocURL" Type="varchar" MaxLength="1000" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SponsorsEvents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SponsorID" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="SplashScreemURL" Type="varchar" MaxLength="1000" />
+          <Property Name="AppBackgroundURL" Type="varchar" MaxLength="1000" />
+          <Property Name="ButtonURL" Type="varchar" MaxLength="1000" />
+          <Property Name="ButtonBackgroundColor" Type="varchar" MaxLength="10" />
+          <Property Name="ButtonForegroundColor" Type="varchar" MaxLength="10" />
+          <Property Name="LabelForegroundColor" Type="varchar" MaxLength="10" />
+          <Property Name="HeadingForegroundColor" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="UserEvent_Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Activites__Activ__20C1E124">
+          <End Role="ActivityTPYES" Type="Self.ActivityTPYES" Multiplicity="1" />
+          <End Role="Activites" Type="Self.Activites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityTPYES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activites">
+              <PropertyRef Name="ActivityTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activites__Event__1FCDBCEB">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Activites" Type="Self.Activites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activites">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AttendesE__Atten__44FF419A">
+          <End Role="Attendes" Type="Self.Attendes" Multiplicity="1" />
+          <End Role="AttendesEvents" Type="Self.AttendesEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttendesEvents">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AttendesE__Event__45F365D3">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="AttendesEvents" Type="Self.AttendesEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttendesEvents">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookMark__Activi__4CA06362">
+          <End Role="Activites" Type="Self.Activites" Multiplicity="1" />
+          <End Role="BookMark" Type="Self.BookMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activites">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookMark">
+              <PropertyRef Name="ActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookMark__Attend__4D94879B">
+          <End Role="Attendes" Type="Self.Attendes" Multiplicity="1" />
+          <End Role="BookMark" Type="Self.BookMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookMark">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FloorMapp__Event__286302EC">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="FloorMapping" Type="Self.FloorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FloorMapping">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FloorRegi__Event__2B3F6F97">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="FloorRegionMapping" Type="Self.FloorRegionMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FloorRegionMapping">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FloorRegio__FMid__2C3393D0">
+          <End Role="FloorMapping" Type="Self.FloorMapping" Multiplicity="1" />
+          <End Role="FloorRegionMapping" Type="Self.FloorRegionMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FloorMapping">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FloorRegionMapping">
+              <PropertyRef Name="FMid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumSoci__Atten__5535A963">
+          <End Role="Attendes" Type="Self.Attendes" Multiplicity="1" />
+          <End Role="ForumSocialComments" Type="Self.ForumSocialComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ForumSocialComments">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumSoci__PostI__5441852A">
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="1" />
+          <End Role="ForumSocialComments" Type="Self.ForumSocialComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialForum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ForumSocialComments">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumSoci__Reply__571DF1D5">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="ForumSocialComments" Type="Self.ForumSocialComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumSocialComments">
+              <PropertyRef Name="ReplyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__Atten__3F466844">
+          <End Role="Attendes" Type="Self.Attendes" Multiplicity="1" />
+          <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__Event__3D5E1FD2">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Secti__15502E78">
+          <End Role="Sections" Type="Self.Sections" Multiplicity="1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__UserI__145C0A3F">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Photos__EventID__2F10007B">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PostUserL__Atten__5165187F">
+          <End Role="Attendes" Type="Self.Attendes" Multiplicity="1" />
+          <End Role="PostUserLike" Type="Self.PostUserLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PostUserLike">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PostUserL__PostI__5070F446">
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="1" />
+          <End Role="PostUserLike" Type="Self.PostUserLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialForum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PostUserLike">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRCode__Ativitit__24927208">
+          <End Role="Activites" Type="Self.Activites" Multiplicity="1" />
+          <End Role="QRCode" Type="Self.QRCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activites">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRCode">
+              <PropertyRef Name="AtivitityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRCode__EventID__239E4DCF">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="QRCode" Type="Self.QRCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRCode">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRHistory__Atten__5AEE82B9">
+          <End Role="Attendes" Type="Self.Attendes" Multiplicity="1" />
+          <End Role="QRHistory" Type="Self.QRHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRHistory">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRHistory__QRid__59FA5E80">
+          <End Role="QRCode" Type="Self.QRCode" Multiplicity="1" />
+          <End Role="QRHistory" Type="Self.QRHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QRCode">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRHistory">
+              <PropertyRef Name="QRid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SocialFor__Atten__38996AB5">
+          <End Role="Attendes" Type="Self.Attendes" Multiplicity="1" />
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SocialForum">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SocialFor__Event__35BCFE0A">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SocialForum">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SocialFor__PostT__36B12243">
+          <End Role="PostType" Type="Self.PostType" Multiplicity="1" />
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SocialForum">
+              <PropertyRef Name="PostTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SponsorsE__Event__49C3F6B7">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="SponsorsEvents" Type="Self.SponsorsEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SponsorsEvents">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SponsorsE__Spons__48CFD27E">
+          <End Role="Sponsors" Type="Self.Sponsors" Multiplicity="1" />
+          <End Role="SponsorsEvents" Type="Self.SponsorsEvents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SponsorsEvents">
+              <PropertyRef Name="SponsorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Theme__EventID__4222D4EF">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Theme">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserEvent__Permi__1920BF5C">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="UserEvent_Permission" Type="Self.UserEvent_Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserEvent_Permission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserEvent__UserI__182C9B23">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="UserEvent_Permission" Type="Self.UserEvent_Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserEvent_Permission">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Event_ManagementModelStoreContainer">
+          <EntitySet Name="Activites" EntityType="Self.Activites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityTPYES" EntityType="Self.ActivityTPYES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendes" EntityType="Self.Attendes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendesEvents" EntityType="Self.AttendesEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookMark" EntityType="Self.BookMark" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FloorMapping" EntityType="Self.FloorMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FloorRegionMapping" EntityType="Self.FloorRegionMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForumSocialComments" EntityType="Self.ForumSocialComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostType" EntityType="Self.PostType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostUserLike" EntityType="Self.PostUserLike" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QRCode" EntityType="Self.QRCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QRHistory" EntityType="Self.QRHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sections" EntityType="Self.Sections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialForum" EntityType="Self.SocialForum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sponsors" EntityType="Self.Sponsors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SponsorsEvents" EntityType="Self.SponsorsEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserEvent_Permission" EntityType="Self.UserEvent_Permission" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Activites__Activ__20C1E124" Association="Self.FK__Activites__Activ__20C1E124">
+            <End Role="ActivityTPYES" EntitySet="ActivityTPYES" />
+            <End Role="Activites" EntitySet="Activites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activites__Event__1FCDBCEB" Association="Self.FK__Activites__Event__1FCDBCEB">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Activites" EntitySet="Activites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AttendesE__Atten__44FF419A" Association="Self.FK__AttendesE__Atten__44FF419A">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="AttendesEvents" EntitySet="AttendesEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AttendesE__Event__45F365D3" Association="Self.FK__AttendesE__Event__45F365D3">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="AttendesEvents" EntitySet="AttendesEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookMark__Activi__4CA06362" Association="Self.FK__BookMark__Activi__4CA06362">
+            <End Role="Activites" EntitySet="Activites" />
+            <End Role="BookMark" EntitySet="BookMark" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookMark__Attend__4D94879B" Association="Self.FK__BookMark__Attend__4D94879B">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="BookMark" EntitySet="BookMark" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FloorMapp__Event__286302EC" Association="Self.FK__FloorMapp__Event__286302EC">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="FloorMapping" EntitySet="FloorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FloorRegi__Event__2B3F6F97" Association="Self.FK__FloorRegi__Event__2B3F6F97">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="FloorRegionMapping" EntitySet="FloorRegionMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FloorRegio__FMid__2C3393D0" Association="Self.FK__FloorRegio__FMid__2C3393D0">
+            <End Role="FloorMapping" EntitySet="FloorMapping" />
+            <End Role="FloorRegionMapping" EntitySet="FloorRegionMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumSoci__Atten__5535A963" Association="Self.FK__ForumSoci__Atten__5535A963">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="ForumSocialComments" EntitySet="ForumSocialComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumSoci__PostI__5441852A" Association="Self.FK__ForumSoci__PostI__5441852A">
+            <End Role="SocialForum" EntitySet="SocialForum" />
+            <End Role="ForumSocialComments" EntitySet="ForumSocialComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumSoci__Reply__571DF1D5" Association="Self.FK__ForumSoci__Reply__571DF1D5">
+            <End Role="AppUser" EntitySet="AppUser" />
+            <End Role="ForumSocialComments" EntitySet="ForumSocialComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__Atten__3F466844" Association="Self.FK__Notificat__Atten__3F466844">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__Event__3D5E1FD2" Association="Self.FK__Notificat__Event__3D5E1FD2">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Secti__15502E78" Association="Self.FK__Permissio__Secti__15502E78">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__UserI__145C0A3F" Association="Self.FK__Permissio__UserI__145C0A3F">
+            <End Role="AppUser" EntitySet="AppUser" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Photos__EventID__2F10007B" Association="Self.FK__Photos__EventID__2F10007B">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PostUserL__Atten__5165187F" Association="Self.FK__PostUserL__Atten__5165187F">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="PostUserLike" EntitySet="PostUserLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PostUserL__PostI__5070F446" Association="Self.FK__PostUserL__PostI__5070F446">
+            <End Role="SocialForum" EntitySet="SocialForum" />
+            <End Role="PostUserLike" EntitySet="PostUserLike" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRCode__Ativitit__24927208" Association="Self.FK__QRCode__Ativitit__24927208">
+            <End Role="Activites" EntitySet="Activites" />
+            <End Role="QRCode" EntitySet="QRCode" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRCode__EventID__239E4DCF" Association="Self.FK__QRCode__EventID__239E4DCF">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="QRCode" EntitySet="QRCode" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRHistory__Atten__5AEE82B9" Association="Self.FK__QRHistory__Atten__5AEE82B9">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="QRHistory" EntitySet="QRHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRHistory__QRid__59FA5E80" Association="Self.FK__QRHistory__QRid__59FA5E80">
+            <End Role="QRCode" EntitySet="QRCode" />
+            <End Role="QRHistory" EntitySet="QRHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SocialFor__Atten__38996AB5" Association="Self.FK__SocialFor__Atten__38996AB5">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="SocialForum" EntitySet="SocialForum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SocialFor__Event__35BCFE0A" Association="Self.FK__SocialFor__Event__35BCFE0A">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="SocialForum" EntitySet="SocialForum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SocialFor__PostT__36B12243" Association="Self.FK__SocialFor__PostT__36B12243">
+            <End Role="PostType" EntitySet="PostType" />
+            <End Role="SocialForum" EntitySet="SocialForum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SponsorsE__Event__49C3F6B7" Association="Self.FK__SponsorsE__Event__49C3F6B7">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="SponsorsEvents" EntitySet="SponsorsEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SponsorsE__Spons__48CFD27E" Association="Self.FK__SponsorsE__Spons__48CFD27E">
+            <End Role="Sponsors" EntitySet="Sponsors" />
+            <End Role="SponsorsEvents" EntitySet="SponsorsEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Theme__EventID__4222D4EF" Association="Self.FK__Theme__EventID__4222D4EF">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Theme" EntitySet="Theme" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserEvent__Permi__1920BF5C" Association="Self.FK__UserEvent__Permi__1920BF5C">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="UserEvent_Permission" EntitySet="UserEvent_Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserEvent__UserI__182C9B23" Association="Self.FK__UserEvent__UserI__182C9B23">
+            <End Role="AppUser" EntitySet="AppUser" />
+            <End Role="UserEvent_Permission" EntitySet="UserEvent_Permission" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Event_ManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activite">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Thumbnail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateON" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="ActivityTypeid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ActivityTPYE" Relationship="Self.FK__Activites__Activ__20C1E124" FromRole="Activites" ToRole="ActivityTPYES" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Activites__Event__1FCDBCEB" FromRole="Activites" ToRole="Event" />
+          <NavigationProperty Name="BookMarks" Relationship="Self.FK__BookMark__Activi__4CA06362" FromRole="Activites" ToRole="BookMark" />
+          <NavigationProperty Name="QRCodes" Relationship="Self.FK__QRCode__Ativitit__24927208" FromRole="Activites" ToRole="QRCode" />
+        </EntityType>
+        <EntityType Name="ActivityTPYE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Activites" Relationship="Self.FK__Activites__Activ__20C1E124" FromRole="ActivityTPYES" ToRole="Activites" />
+        </EntityType>
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ForumSocialComments" Relationship="Self.FK__ForumSoci__Reply__571DF1D5" FromRole="AppUser" ToRole="ForumSocialComments" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__UserI__145C0A3F" FromRole="AppUser" ToRole="Permission" />
+          <NavigationProperty Name="UserEvent_Permission" Relationship="Self.FK__UserEvent__UserI__182C9B23" FromRole="AppUser" ToRole="UserEvent_Permission" />
+        </EntityType>
+        <EntityType Name="Attende">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Thumbnail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FacebookURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TwitterURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="InstagramURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AddedON" Type="DateTime" Precision="3" />
+          <Property Name="AddedBY" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="DeviceToken" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AttendesEvents" Relationship="Self.FK__AttendesE__Atten__44FF419A" FromRole="Attendes" ToRole="AttendesEvents" />
+          <NavigationProperty Name="BookMarks" Relationship="Self.FK__BookMark__Attend__4D94879B" FromRole="Attendes" ToRole="BookMark" />
+          <NavigationProperty Name="ForumSocialComments" Relationship="Self.FK__ForumSoci__Atten__5535A963" FromRole="Attendes" ToRole="ForumSocialComments" />
+          <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__Atten__3F466844" FromRole="Attendes" ToRole="Notifications" />
+          <NavigationProperty Name="PostUserLikes" Relationship="Self.FK__PostUserL__Atten__5165187F" FromRole="Attendes" ToRole="PostUserLike" />
+          <NavigationProperty Name="QRHistories" Relationship="Self.FK__QRHistory__Atten__5AEE82B9" FromRole="Attendes" ToRole="QRHistory" />
+          <NavigationProperty Name="SocialForums" Relationship="Self.FK__SocialFor__Atten__38996AB5" FromRole="Attendes" ToRole="SocialForum" />
+        </EntityType>
+        <EntityType Name="AttendesEvent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttendesID" Type="Int32" Nullable="false" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attende" Relationship="Self.FK__AttendesE__Atten__44FF419A" FromRole="AttendesEvents" ToRole="Attendes" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__AttendesE__Event__45F365D3" FromRole="AttendesEvents" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="BookMark">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityID" Type="Int32" Nullable="false" />
+          <Property Name="AttendesID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activite" Relationship="Self.FK__BookMark__Activi__4CA06362" FromRole="BookMark" ToRole="Activites" />
+          <NavigationProperty Name="Attende" Relationship="Self.FK__BookMark__Attend__4D94879B" FromRole="BookMark" ToRole="Attendes" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Activites" Relationship="Self.FK__Activites__Event__1FCDBCEB" FromRole="Event" ToRole="Activites" />
+          <NavigationProperty Name="AttendesEvents" Relationship="Self.FK__AttendesE__Event__45F365D3" FromRole="Event" ToRole="AttendesEvents" />
+          <NavigationProperty Name="FloorMappings" Relationship="Self.FK__FloorMapp__Event__286302EC" FromRole="Event" ToRole="FloorMapping" />
+          <NavigationProperty Name="FloorRegionMappings" Relationship="Self.FK__FloorRegi__Event__2B3F6F97" FromRole="Event" ToRole="FloorRegionMapping" />
+          <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__Event__3D5E1FD2" FromRole="Event" ToRole="Notifications" />
+          <NavigationProperty Name="Photos" Relationship="Self.FK__Photos__EventID__2F10007B" FromRole="Event" ToRole="Photos" />
+          <NavigationProperty Name="QRCodes" Relationship="Self.FK__QRCode__EventID__239E4DCF" FromRole="Event" ToRole="QRCode" />
+          <NavigationProperty Name="SocialForums" Relationship="Self.FK__SocialFor__Event__35BCFE0A" FromRole="Event" ToRole="SocialForum" />
+          <NavigationProperty Name="SponsorsEvents" Relationship="Self.FK__SponsorsE__Event__49C3F6B7" FromRole="Event" ToRole="SponsorsEvents" />
+          <NavigationProperty Name="Themes" Relationship="Self.FK__Theme__EventID__4222D4EF" FromRole="Event" ToRole="Theme" />
+        </EntityType>
+        <EntityType Name="FloorMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="PhotoURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__FloorMapp__Event__286302EC" FromRole="FloorMapping" ToRole="Event" />
+          <NavigationProperty Name="FloorRegionMappings" Relationship="Self.FK__FloorRegio__FMid__2C3393D0" FromRole="FloorMapping" ToRole="FloorRegionMapping" />
+        </EntityType>
+        <EntityType Name="FloorRegionMapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="FMid" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
+          <Property Name="Width" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="height" Type="Decimal" Precision="16" Scale="2" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__FloorRegi__Event__2B3F6F97" FromRole="FloorRegionMapping" ToRole="Event" />
+          <NavigationProperty Name="FloorMapping" Relationship="Self.FK__FloorRegio__FMid__2C3393D0" FromRole="FloorRegionMapping" ToRole="FloorMapping" />
+        </EntityType>
+        <EntityType Name="ForumSocialComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="AttendesID" Type="Int32" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedON" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedBY" Type="Int32" />
+          <Property Name="CommentedON" Type="DateTime" Precision="3" />
+          <Property Name="ReplyerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AppUser" Relationship="Self.FK__ForumSoci__Reply__571DF1D5" FromRole="ForumSocialComments" ToRole="AppUser" />
+          <NavigationProperty Name="Attende" Relationship="Self.FK__ForumSoci__Atten__5535A963" FromRole="ForumSocialComments" ToRole="Attendes" />
+          <NavigationProperty Name="SocialForum" Relationship="Self.FK__ForumSoci__PostI__5441852A" FromRole="ForumSocialComments" ToRole="SocialForum" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddedON" Type="DateTime" Precision="3" />
+          <Property Name="AddedBY" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="AttendesID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attende" Relationship="Self.FK__Notificat__Atten__3F466844" FromRole="Notifications" ToRole="Attendes" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Notificat__Event__3D5E1FD2" FromRole="Notifications" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="SectionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AppUser" Relationship="Self.FK__Permissio__UserI__145C0A3F" FromRole="Permission" ToRole="AppUser" />
+          <NavigationProperty Name="Section" Relationship="Self.FK__Permissio__Secti__15502E78" FromRole="Permission" ToRole="Sections" />
+          <NavigationProperty Name="UserEvent_Permission" Relationship="Self.FK__UserEvent__Permi__1920BF5C" FromRole="Permission" ToRole="UserEvent_Permission" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" />
+          <Property Name="URL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="UploadON" Type="DateTime" Precision="3" />
+          <Property Name="UploadBY" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Photos__EventID__2F10007B" FromRole="Photos" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="PostType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SocialForums" Relationship="Self.FK__SocialFor__PostT__36B12243" FromRole="PostType" ToRole="SocialForum" />
+        </EntityType>
+        <EntityType Name="PostUserLike">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" Nullable="false" />
+          <Property Name="AttendesID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attende" Relationship="Self.FK__PostUserL__Atten__5165187F" FromRole="PostUserLike" ToRole="Attendes" />
+          <NavigationProperty Name="SocialForum" Relationship="Self.FK__PostUserL__PostI__5070F446" FromRole="PostUserLike" ToRole="SocialForum" />
+        </EntityType>
+        <EntityType Name="QRCode">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AtivitityID" Type="Int32" Nullable="false" />
+          <Property Name="WebURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GeneratedON" Type="DateTime" Precision="3" />
+          <Property Name="GeneratedBY" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="Activite" Relationship="Self.FK__QRCode__Ativitit__24927208" FromRole="QRCode" ToRole="Activites" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__QRCode__EventID__239E4DCF" FromRole="QRCode" ToRole="Event" />
+          <NavigationProperty Name="QRHistories" Relationship="Self.FK__QRHistory__QRid__59FA5E80" FromRole="QRCode" ToRole="QRHistory" />
+        </EntityType>
+        <EntityType Name="QRHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QRid" Type="Int32" Nullable="false" />
+          <Property Name="AttendesID" Type="Int32" Nullable="false" />
+          <Property Name="CommentON" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Attende" Relationship="Self.FK__QRHistory__Atten__5AEE82B9" FromRole="QRHistory" ToRole="Attendes" />
+          <NavigationProperty Name="QRCode" Relationship="Self.FK__QRHistory__QRid__59FA5E80" FromRole="QRHistory" ToRole="QRCode" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Permissions" Relationship="Self.FK__Permissio__Secti__15502E78" FromRole="Sections" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="SocialForum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="UploadON" Type="DateTime" Precision="3" />
+          <Property Name="UploadBY" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PostTypeid" Type="Int32" Nullable="false" />
+          <Property Name="ApprovedON" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedBY" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="TotalLikes" Type="Int32" />
+          <Property Name="AttendesID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attende" Relationship="Self.FK__SocialFor__Atten__38996AB5" FromRole="SocialForum" ToRole="Attendes" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__SocialFor__Event__35BCFE0A" FromRole="SocialForum" ToRole="Event" />
+          <NavigationProperty Name="ForumSocialComments" Relationship="Self.FK__ForumSoci__PostI__5441852A" FromRole="SocialForum" ToRole="ForumSocialComments" />
+          <NavigationProperty Name="PostType" Relationship="Self.FK__SocialFor__PostT__36B12243" FromRole="SocialForum" ToRole="PostType" />
+          <NavigationProperty Name="PostUserLikes" Relationship="Self.FK__PostUserL__PostI__5070F446" FromRole="SocialForum" ToRole="PostUserLike" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Thumbnail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DocURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SponsorsEvents" Relationship="Self.FK__SponsorsE__Spons__48CFD27E" FromRole="Sponsors" ToRole="SponsorsEvents" />
+        </EntityType>
+        <EntityType Name="SponsorsEvent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SponsorID" Type="Int32" Nullable="false" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__SponsorsE__Event__49C3F6B7" FromRole="SponsorsEvents" ToRole="Event" />
+          <NavigationProperty Name="Sponsor" Relationship="Self.FK__SponsorsE__Spons__48CFD27E" FromRole="SponsorsEvents" ToRole="Sponsors" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="SplashScreemURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AppBackgroundURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ButtonURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ButtonBackgroundColor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ButtonForegroundColor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LabelForegroundColor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HeadingForegroundColor" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK__Theme__EventID__4222D4EF" FromRole="Theme" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="UserEvent_Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AppUser" Relationship="Self.FK__UserEvent__UserI__182C9B23" FromRole="UserEvent_Permission" ToRole="AppUser" />
+          <NavigationProperty Name="Permission" Relationship="Self.FK__UserEvent__Permi__1920BF5C" FromRole="UserEvent_Permission" ToRole="Permission" />
+        </EntityType>
+        <Association Name="FK__Activites__Activ__20C1E124">
+          <End Role="ActivityTPYES" Type="Self.ActivityTPYE" Multiplicity="1" />
+          <End Role="Activites" Type="Self.Activite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActivityTPYES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activites">
+              <PropertyRef Name="ActivityTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Activites__Event__1FCDBCEB">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Activites" Type="Self.Activite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activites">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookMark__Activi__4CA06362">
+          <End Role="Activites" Type="Self.Activite" Multiplicity="1" />
+          <End Role="BookMark" Type="Self.BookMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activites">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookMark">
+              <PropertyRef Name="ActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRCode__Ativitit__24927208">
+          <End Role="Activites" Type="Self.Activite" Multiplicity="1" />
+          <End Role="QRCode" Type="Self.QRCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activites">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRCode">
+              <PropertyRef Name="AtivitityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumSoci__Reply__571DF1D5">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="ForumSocialComments" Type="Self.ForumSocialComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumSocialComments">
+              <PropertyRef Name="ReplyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__UserI__145C0A3F">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserEvent__UserI__182C9B23">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="1" />
+          <End Role="UserEvent_Permission" Type="Self.UserEvent_Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserEvent_Permission">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AttendesE__Atten__44FF419A">
+          <End Role="Attendes" Type="Self.Attende" Multiplicity="1" />
+          <End Role="AttendesEvents" Type="Self.AttendesEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttendesEvents">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookMark__Attend__4D94879B">
+          <End Role="Attendes" Type="Self.Attende" Multiplicity="1" />
+          <End Role="BookMark" Type="Self.BookMark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BookMark">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumSoci__Atten__5535A963">
+          <End Role="Attendes" Type="Self.Attende" Multiplicity="1" />
+          <End Role="ForumSocialComments" Type="Self.ForumSocialComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ForumSocialComments">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__Atten__3F466844">
+          <End Role="Attendes" Type="Self.Attende" Multiplicity="1" />
+          <End Role="Notifications" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PostUserL__Atten__5165187F">
+          <End Role="Attendes" Type="Self.Attende" Multiplicity="1" />
+          <End Role="PostUserLike" Type="Self.PostUserLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PostUserLike">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRHistory__Atten__5AEE82B9">
+          <End Role="Attendes" Type="Self.Attende" Multiplicity="1" />
+          <End Role="QRHistory" Type="Self.QRHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRHistory">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SocialFor__Atten__38996AB5">
+          <End Role="Attendes" Type="Self.Attende" Multiplicity="1" />
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SocialForum">
+              <PropertyRef Name="AttendesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AttendesE__Event__45F365D3">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="AttendesEvents" Type="Self.AttendesEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttendesEvents">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FloorMapp__Event__286302EC">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="FloorMapping" Type="Self.FloorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FloorMapping">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FloorRegi__Event__2B3F6F97">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="FloorRegionMapping" Type="Self.FloorRegionMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FloorRegionMapping">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__Event__3D5E1FD2">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Notifications" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Photos__EventID__2F10007B">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="Photos" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRCode__EventID__239E4DCF">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="QRCode" Type="Self.QRCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRCode">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SocialFor__Event__35BCFE0A">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SocialForum">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SponsorsE__Event__49C3F6B7">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="SponsorsEvents" Type="Self.SponsorsEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SponsorsEvents">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Theme__EventID__4222D4EF">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Theme">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FloorRegio__FMid__2C3393D0">
+          <End Role="FloorMapping" Type="Self.FloorMapping" Multiplicity="1" />
+          <End Role="FloorRegionMapping" Type="Self.FloorRegionMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FloorMapping">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FloorRegionMapping">
+              <PropertyRef Name="FMid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumSoci__PostI__5441852A">
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="1" />
+          <End Role="ForumSocialComments" Type="Self.ForumSocialComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialForum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ForumSocialComments">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Permissio__Secti__15502E78">
+          <End Role="Sections" Type="Self.Section" Multiplicity="1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserEvent__Permi__1920BF5C">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="UserEvent_Permission" Type="Self.UserEvent_Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserEvent_Permission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SocialFor__PostT__36B12243">
+          <End Role="PostType" Type="Self.PostType" Multiplicity="1" />
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SocialForum">
+              <PropertyRef Name="PostTypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PostUserL__PostI__5070F446">
+          <End Role="SocialForum" Type="Self.SocialForum" Multiplicity="1" />
+          <End Role="PostUserLike" Type="Self.PostUserLike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialForum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PostUserLike">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QRHistory__QRid__59FA5E80">
+          <End Role="QRCode" Type="Self.QRCode" Multiplicity="1" />
+          <End Role="QRHistory" Type="Self.QRHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QRCode">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="QRHistory">
+              <PropertyRef Name="QRid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SponsorsE__Spons__48CFD27E">
+          <End Role="Sponsors" Type="Self.Sponsor" Multiplicity="1" />
+          <End Role="SponsorsEvents" Type="Self.SponsorsEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SponsorsEvents">
+              <PropertyRef Name="SponsorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Event_ManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activites" EntityType="Self.Activite" />
+          <EntitySet Name="ActivityTPYES" EntityType="Self.ActivityTPYE" />
+          <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
+          <EntitySet Name="Attendes" EntityType="Self.Attende" />
+          <EntitySet Name="AttendesEvents" EntityType="Self.AttendesEvent" />
+          <EntitySet Name="BookMarks" EntityType="Self.BookMark" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="FloorMappings" EntityType="Self.FloorMapping" />
+          <EntitySet Name="FloorRegionMappings" EntityType="Self.FloorRegionMapping" />
+          <EntitySet Name="ForumSocialComments" EntityType="Self.ForumSocialComment" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="Photos" EntityType="Self.Photo" />
+          <EntitySet Name="PostTypes" EntityType="Self.PostType" />
+          <EntitySet Name="PostUserLikes" EntityType="Self.PostUserLike" />
+          <EntitySet Name="QRCodes" EntityType="Self.QRCode" />
+          <EntitySet Name="QRHistories" EntityType="Self.QRHistory" />
+          <EntitySet Name="Sections" EntityType="Self.Section" />
+          <EntitySet Name="SocialForums" EntityType="Self.SocialForum" />
+          <EntitySet Name="Sponsors" EntityType="Self.Sponsor" />
+          <EntitySet Name="SponsorsEvents" EntityType="Self.SponsorsEvent" />
+          <EntitySet Name="Themes" EntityType="Self.Theme" />
+          <EntitySet Name="UserEvent_Permission" EntityType="Self.UserEvent_Permission" />
+          <AssociationSet Name="FK__Activites__Activ__20C1E124" Association="Self.FK__Activites__Activ__20C1E124">
+            <End Role="ActivityTPYES" EntitySet="ActivityTPYES" />
+            <End Role="Activites" EntitySet="Activites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Activites__Event__1FCDBCEB" Association="Self.FK__Activites__Event__1FCDBCEB">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Activites" EntitySet="Activites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookMark__Activi__4CA06362" Association="Self.FK__BookMark__Activi__4CA06362">
+            <End Role="Activites" EntitySet="Activites" />
+            <End Role="BookMark" EntitySet="BookMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRCode__Ativitit__24927208" Association="Self.FK__QRCode__Ativitit__24927208">
+            <End Role="Activites" EntitySet="Activites" />
+            <End Role="QRCode" EntitySet="QRCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumSoci__Reply__571DF1D5" Association="Self.FK__ForumSoci__Reply__571DF1D5">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="ForumSocialComments" EntitySet="ForumSocialComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__UserI__145C0A3F" Association="Self.FK__Permissio__UserI__145C0A3F">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserEvent__UserI__182C9B23" Association="Self.FK__UserEvent__UserI__182C9B23">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="UserEvent_Permission" EntitySet="UserEvent_Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AttendesE__Atten__44FF419A" Association="Self.FK__AttendesE__Atten__44FF419A">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="AttendesEvents" EntitySet="AttendesEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookMark__Attend__4D94879B" Association="Self.FK__BookMark__Attend__4D94879B">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="BookMark" EntitySet="BookMarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumSoci__Atten__5535A963" Association="Self.FK__ForumSoci__Atten__5535A963">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="ForumSocialComments" EntitySet="ForumSocialComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__Atten__3F466844" Association="Self.FK__Notificat__Atten__3F466844">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PostUserL__Atten__5165187F" Association="Self.FK__PostUserL__Atten__5165187F">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="PostUserLike" EntitySet="PostUserLikes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRHistory__Atten__5AEE82B9" Association="Self.FK__QRHistory__Atten__5AEE82B9">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="QRHistory" EntitySet="QRHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SocialFor__Atten__38996AB5" Association="Self.FK__SocialFor__Atten__38996AB5">
+            <End Role="Attendes" EntitySet="Attendes" />
+            <End Role="SocialForum" EntitySet="SocialForums" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AttendesE__Event__45F365D3" Association="Self.FK__AttendesE__Event__45F365D3">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="AttendesEvents" EntitySet="AttendesEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FloorMapp__Event__286302EC" Association="Self.FK__FloorMapp__Event__286302EC">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="FloorMapping" EntitySet="FloorMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FloorRegi__Event__2B3F6F97" Association="Self.FK__FloorRegi__Event__2B3F6F97">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="FloorRegionMapping" EntitySet="FloorRegionMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__Event__3D5E1FD2" Association="Self.FK__Notificat__Event__3D5E1FD2">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Photos__EventID__2F10007B" Association="Self.FK__Photos__EventID__2F10007B">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRCode__EventID__239E4DCF" Association="Self.FK__QRCode__EventID__239E4DCF">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="QRCode" EntitySet="QRCodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SocialFor__Event__35BCFE0A" Association="Self.FK__SocialFor__Event__35BCFE0A">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="SocialForum" EntitySet="SocialForums" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SponsorsE__Event__49C3F6B7" Association="Self.FK__SponsorsE__Event__49C3F6B7">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="SponsorsEvents" EntitySet="SponsorsEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Theme__EventID__4222D4EF" Association="Self.FK__Theme__EventID__4222D4EF">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Theme" EntitySet="Themes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FloorRegio__FMid__2C3393D0" Association="Self.FK__FloorRegio__FMid__2C3393D0">
+            <End Role="FloorMapping" EntitySet="FloorMappings" />
+            <End Role="FloorRegionMapping" EntitySet="FloorRegionMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumSoci__PostI__5441852A" Association="Self.FK__ForumSoci__PostI__5441852A">
+            <End Role="SocialForum" EntitySet="SocialForums" />
+            <End Role="ForumSocialComments" EntitySet="ForumSocialComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Permissio__Secti__15502E78" Association="Self.FK__Permissio__Secti__15502E78">
+            <End Role="Sections" EntitySet="Sections" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserEvent__Permi__1920BF5C" Association="Self.FK__UserEvent__Permi__1920BF5C">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="UserEvent_Permission" EntitySet="UserEvent_Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SocialFor__PostT__36B12243" Association="Self.FK__SocialFor__PostT__36B12243">
+            <End Role="PostType" EntitySet="PostTypes" />
+            <End Role="SocialForum" EntitySet="SocialForums" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PostUserL__PostI__5070F446" Association="Self.FK__PostUserL__PostI__5070F446">
+            <End Role="SocialForum" EntitySet="SocialForums" />
+            <End Role="PostUserLike" EntitySet="PostUserLikes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QRHistory__QRid__59FA5E80" Association="Self.FK__QRHistory__QRid__59FA5E80">
+            <End Role="QRCode" EntitySet="QRCodes" />
+            <End Role="QRHistory" EntitySet="QRHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SponsorsE__Spons__48CFD27E" Association="Self.FK__SponsorsE__Spons__48CFD27E">
+            <End Role="Sponsors" EntitySet="Sponsors" />
+            <End Role="SponsorsEvents" EntitySet="SponsorsEvents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Event_ManagementModelStoreContainer" CdmEntityContainer="Event_ManagementEntities">
+          <EntitySetMapping Name="Activites">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Activite">
+              <MappingFragment StoreEntitySet="Activites">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreateON" ColumnName="CreateON" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ActivityTypeid" ColumnName="ActivityTypeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityTPYES">
+            <EntityTypeMapping TypeName="Event_ManagementModel.ActivityTPYE">
+              <MappingFragment StoreEntitySet="ActivityTPYES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppUsers">
+            <EntityTypeMapping TypeName="Event_ManagementModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendes">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Attende">
+              <MappingFragment StoreEntitySet="Attendes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="FacebookURL" ColumnName="FacebookURL" />
+                <ScalarProperty Name="TwitterURL" ColumnName="TwitterURL" />
+                <ScalarProperty Name="InstagramURL" ColumnName="InstagramURL" />
+                <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+                <ScalarProperty Name="AddedBY" ColumnName="AddedBY" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DeviceToken" ColumnName="DeviceToken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendesEvents">
+            <EntityTypeMapping TypeName="Event_ManagementModel.AttendesEvent">
+              <MappingFragment StoreEntitySet="AttendesEvents">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AttendesID" ColumnName="AttendesID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookMarks">
+            <EntityTypeMapping TypeName="Event_ManagementModel.BookMark">
+              <MappingFragment StoreEntitySet="BookMark">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+                <ScalarProperty Name="AttendesID" ColumnName="AttendesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FloorMappings">
+            <EntityTypeMapping TypeName="Event_ManagementModel.FloorMapping">
+              <MappingFragment StoreEntitySet="FloorMapping">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FloorRegionMappings">
+            <EntityTypeMapping TypeName="Event_ManagementModel.FloorRegionMapping">
+              <MappingFragment StoreEntitySet="FloorRegionMapping">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="FMid" ColumnName="FMid" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="height" ColumnName="height" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumSocialComments">
+            <EntityTypeMapping TypeName="Event_ManagementModel.ForumSocialComment">
+              <MappingFragment StoreEntitySet="ForumSocialComments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="AttendesID" ColumnName="AttendesID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ApprovedON" ColumnName="ApprovedON" />
+                <ScalarProperty Name="ApprovedBY" ColumnName="ApprovedBY" />
+                <ScalarProperty Name="CommentedON" ColumnName="CommentedON" />
+                <ScalarProperty Name="ReplyerID" ColumnName="ReplyerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Notification">
+              <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="AddedON" ColumnName="AddedON" />
+                <ScalarProperty Name="AddedBY" ColumnName="AddedBY" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AttendesID" ColumnName="AttendesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Photo">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="UploadON" ColumnName="UploadON" />
+                <ScalarProperty Name="UploadBY" ColumnName="UploadBY" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostTypes">
+            <EntityTypeMapping TypeName="Event_ManagementModel.PostType">
+              <MappingFragment StoreEntitySet="PostType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostUserLikes">
+            <EntityTypeMapping TypeName="Event_ManagementModel.PostUserLike">
+              <MappingFragment StoreEntitySet="PostUserLike">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="AttendesID" ColumnName="AttendesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QRCodes">
+            <EntityTypeMapping TypeName="Event_ManagementModel.QRCode">
+              <MappingFragment StoreEntitySet="QRCode">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AtivitityID" ColumnName="AtivitityID" />
+                <ScalarProperty Name="WebURL" ColumnName="WebURL" />
+                <ScalarProperty Name="GeneratedON" ColumnName="GeneratedON" />
+                <ScalarProperty Name="GeneratedBY" ColumnName="GeneratedBY" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QRHistories">
+            <EntityTypeMapping TypeName="Event_ManagementModel.QRHistory">
+              <MappingFragment StoreEntitySet="QRHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="QRid" ColumnName="QRid" />
+                <ScalarProperty Name="AttendesID" ColumnName="AttendesID" />
+                <ScalarProperty Name="CommentON" ColumnName="CommentON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Section">
+              <MappingFragment StoreEntitySet="Sections">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialForums">
+            <EntityTypeMapping TypeName="Event_ManagementModel.SocialForum">
+              <MappingFragment StoreEntitySet="SocialForum">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="UploadON" ColumnName="UploadON" />
+                <ScalarProperty Name="UploadBY" ColumnName="UploadBY" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PostTypeid" ColumnName="PostTypeid" />
+                <ScalarProperty Name="ApprovedON" ColumnName="ApprovedON" />
+                <ScalarProperty Name="ApprovedBY" ColumnName="ApprovedBY" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TotalLikes" ColumnName="TotalLikes" />
+                <ScalarProperty Name="AttendesID" ColumnName="AttendesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sponsors">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Sponsor">
+              <MappingFragment StoreEntitySet="Sponsors">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+                <ScalarProperty Name="DocURL" ColumnName="DocURL" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SponsorsEvents">
+            <EntityTypeMapping TypeName="Event_ManagementModel.SponsorsEvent">
+              <MappingFragment StoreEntitySet="SponsorsEvents">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SponsorID" ColumnName="SponsorID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Themes">
+            <EntityTypeMapping TypeName="Event_ManagementModel.Theme">
+              <MappingFragment StoreEntitySet="Theme">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="SplashScreemURL" ColumnName="SplashScreemURL" />
+                <ScalarProperty Name="AppBackgroundURL" ColumnName="AppBackgroundURL" />
+                <ScalarProperty Name="ButtonURL" ColumnName="ButtonURL" />
+                <ScalarProperty Name="ButtonBackgroundColor" ColumnName="ButtonBackgroundColor" />
+                <ScalarProperty Name="ButtonForegroundColor" ColumnName="ButtonForegroundColor" />
+                <ScalarProperty Name="LabelForegroundColor" ColumnName="LabelForegroundColor" />
+                <ScalarProperty Name="HeadingForegroundColor" ColumnName="HeadingForegroundColor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEvent_Permission">
+            <EntityTypeMapping TypeName="Event_ManagementModel.UserEvent_Permission">
+              <MappingFragment StoreEntitySet="UserEvent_Permission">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

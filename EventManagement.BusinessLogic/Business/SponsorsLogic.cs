@@ -13,6 +13,7 @@ namespace EventManagement.BusinessLogic.Business
     {
         public async Task<List<Sponsor>> GetSponsors()
         {
+            //test 2
             return await Db.Sponsors.ToListAsync();
         }
     }

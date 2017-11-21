@@ -12,7 +12,9 @@ namespace TransportERP.Base
         string dbconext = "";
         string currentSession = "";
         public string CurrentUserSession => "";
-        public string FileSavePath => Server.MapPath("~/Uploads");
+        public string ImageSave => Server.MapPath("~/Uploads");
+
+        public string VideoSavePath => Server.MapPath("~/Uploads");
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             string AuthToken = "";

@@ -1,4 +1,5 @@
-﻿using EventManagement.BusinessLogic.Business;
+﻿using EventManagement.Base;
+using EventManagement.BusinessLogic.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace EventManagement.Areas.API.Controllers
 {
-    public class AttendesController : Controller
+    public class AttendesController : BaseAPIController
     {
 
         // GET: API/Attendes

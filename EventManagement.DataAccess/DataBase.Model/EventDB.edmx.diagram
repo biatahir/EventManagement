@@ -5,60 +5,63 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="91649b8ca1004ef8a244d88557d5e219" Name="Diagram1" ZoomLevel="47">
-        <EntityTypeShape EntityType="Event_ManagementModel.Activite" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.ActivityTPYE" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.AppUser" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Attende" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.AttendesEvent" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.BookMark" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Event" Width="1.5" PointX="0.75" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.FloorMapping" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.FloorRegionMapping" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.ForumSocialComment" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Notification" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Permission" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Photo" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.PostType" Width="1.5" PointX="3.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.PostUserLike" Width="1.5" PointX="11.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.QRCode" Width="1.5" PointX="10.25" PointY="20.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.QRHistory" Width="1.5" PointX="12.5" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Section" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.SocialForum" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Sponsor" Width="1.5" PointX="5.75" PointY="24.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.SponsorsEvent" Width="1.5" PointX="8" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.Theme" Width="1.5" PointX="3" PointY="38.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Event_ManagementModel.UserEvent_Permission" Width="1.5" PointX="10.5" PointY="8.5" IsExpanded="true" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Activites__Activ__20C1E124" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Activites__Event__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__BookMark__Activi__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__QRCode__Ativitit__24927208" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__ForumSoci__Reply__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Permissio__UserI__145C0A3F" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__UserEvent__UserI__182C9B23" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__AttendesE__Atten__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__BookMark__Attend__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__ForumSoci__Atten__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Notificat__Atten__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__PostUserL__Atten__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__QRHistory__Atten__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__SocialFor__Atten__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__AttendesE__Event__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__FloorMapp__Event__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__FloorRegi__Event__2B3F6F97" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Notificat__Event__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Photos__EventID__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__QRCode__EventID__239E4DCF" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__SocialFor__Event__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__SponsorsE__Event__49C3F6B7" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Theme__EventID__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__FloorRegio__FMid__2C3393D0" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__ForumSoci__PostI__5441852A" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__Permissio__Secti__15502E78" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__UserEvent__Permi__1920BF5C" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__SocialFor__PostT__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__PostUserL__PostI__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__QRHistory__QRid__59FA5E80" ManuallyRouted="false" />
-        <AssociationConnector Association="Event_ManagementModel.FK__SponsorsE__Spons__48CFD27E" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Activite" Width="1.5" PointX="3" PointY="12.625" />
+        <EntityTypeShape EntityType="Event_ManagementModel.ActivityTPYE" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="Event_ManagementModel.AppUser" Width="1.5" PointX="9" PointY="25" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Attende" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="Event_ManagementModel.AttendesEvent" Width="1.5" PointX="6" PointY="17.5" />
+        <EntityTypeShape EntityType="Event_ManagementModel.BookMark" Width="1.5" PointX="5.25" PointY="11.5" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Event" Width="1.5" PointX="0.75" PointY="16.875" />
+        <EntityTypeShape EntityType="Event_ManagementModel.FloorMapping" Width="1.5" PointX="3" PointY="32.5" />
+        <EntityTypeShape EntityType="Event_ManagementModel.FloorRegionMapping" Width="1.5" PointX="5.25" PointY="26.25" />
+        <EntityTypeShape EntityType="Event_ManagementModel.ForumSocialComment" Width="1.5" PointX="11.25" PointY="20.875" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Notification" Width="1.5" PointX="3" PointY="17.125" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Permission" Width="1.5" PointX="11.25" PointY="25.375" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Photo" Width="1.5" PointX="3" PointY="38.875" />
+        <EntityTypeShape EntityType="Event_ManagementModel.PostType" Width="1.5" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Event_ManagementModel.PostUserLike" Width="1.5" PointX="8.25" PointY="21.5" />
+        <EntityTypeShape EntityType="Event_ManagementModel.QRCode" Width="1.5" PointX="8.25" PointY="14.75" />
+        <EntityTypeShape EntityType="Event_ManagementModel.QRHistory" Width="1.5" PointX="10.5" PointY="15.25" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Section" Width="1.5" PointX="9" PointY="29.75" />
+        <EntityTypeShape EntityType="Event_ManagementModel.SocialForum" Width="1.5" PointX="6" PointY="20.375" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Sponsor" Width="1.5" PointX="3.75" PointY="21.375" />
+        <EntityTypeShape EntityType="Event_ManagementModel.SponsorsEvent" Width="1.5" PointX="6" PointY="14.5" />
+        <EntityTypeShape EntityType="Event_ManagementModel.Theme" Width="1.5" PointX="3" PointY="35.25" />
+        <EntityTypeShape EntityType="Event_ManagementModel.UserEvent_Permission" Width="1.5" PointX="13.5" PointY="25.5" />
+        <EntityTypeShape EntityType="Event_ManagementModel.UserSession" Width="1.5" PointX="13.25" PointY="16.25" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Activites__Activ__20C1E124" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Activites__Event__1FCDBCEB" />
+        <AssociationConnector Association="Event_ManagementModel.FK__BookMark__Activi__4CA06362" />
+        <AssociationConnector Association="Event_ManagementModel.FK__QRCode__Ativitit__24927208" />
+        <AssociationConnector Association="Event_ManagementModel.FK__ForumSoci__Reply__571DF1D5" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Permissio__UserI__145C0A3F" />
+        <AssociationConnector Association="Event_ManagementModel.FK__UserEvent__UserI__182C9B23" />
+        <AssociationConnector Association="Event_ManagementModel.FK__UserSessi__UserI__5DCAEF64" />
+        <AssociationConnector Association="Event_ManagementModel.FK__AttendesE__Atten__44FF419A" />
+        <AssociationConnector Association="Event_ManagementModel.FK__BookMark__Attend__4D94879B" />
+        <AssociationConnector Association="Event_ManagementModel.FK__ForumSoci__Atten__5535A963" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Notificat__Atten__3F466844" />
+        <AssociationConnector Association="Event_ManagementModel.FK__PostUserL__Atten__5165187F" />
+        <AssociationConnector Association="Event_ManagementModel.FK__QRHistory__Atten__5AEE82B9" />
+        <AssociationConnector Association="Event_ManagementModel.FK__SocialFor__Atten__38996AB5" />
+        <AssociationConnector Association="Event_ManagementModel.FK__UserSessi__Atten__5EBF139D" />
+        <AssociationConnector Association="Event_ManagementModel.FK__AttendesE__Event__45F365D3" />
+        <AssociationConnector Association="Event_ManagementModel.FK__FloorMapp__Event__286302EC" />
+        <AssociationConnector Association="Event_ManagementModel.FK__FloorRegi__Event__2B3F6F97" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Notificat__Event__3D5E1FD2" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Photos__EventID__2F10007B" />
+        <AssociationConnector Association="Event_ManagementModel.FK__QRCode__EventID__239E4DCF" />
+        <AssociationConnector Association="Event_ManagementModel.FK__SocialFor__Event__35BCFE0A" />
+        <AssociationConnector Association="Event_ManagementModel.FK__SponsorsE__Event__49C3F6B7" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Theme__EventID__4222D4EF" />
+        <AssociationConnector Association="Event_ManagementModel.FK__FloorRegio__FMid__2C3393D0" />
+        <AssociationConnector Association="Event_ManagementModel.FK__ForumSoci__PostI__5441852A" />
+        <AssociationConnector Association="Event_ManagementModel.FK__Permissio__Secti__15502E78" />
+        <AssociationConnector Association="Event_ManagementModel.FK__UserEvent__Permi__1920BF5C" />
+        <AssociationConnector Association="Event_ManagementModel.FK__SocialFor__PostT__36B12243" />
+        <AssociationConnector Association="Event_ManagementModel.FK__PostUserL__PostI__5070F446" />
+        <AssociationConnector Association="Event_ManagementModel.FK__QRHistory__QRid__59FA5E80" />
+        <AssociationConnector Association="Event_ManagementModel.FK__SponsorsE__Spons__48CFD27E" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

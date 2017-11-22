@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\EventManagement\EventManagement.DataAccess\DataBase.Model\EventDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Nabiha pc\Documents\GitHub\EventManagement1\EventManagement.DataAccess\DataBase.Model\EventDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

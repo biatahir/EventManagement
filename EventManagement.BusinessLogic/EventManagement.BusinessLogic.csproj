@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIException.cs" />
     <Compile Include="Business\AttendesLogic.cs" />
+    <Compile Include="Business\AuthLogic.cs" />
     <Compile Include="Business\SponsorsLogic.cs" />
     <Compile Include="Business\BaseLogic.cs" />
     <Compile Include="Models\AttendesDTO.cs" />

@@ -175,6 +175,7 @@
     <Compile Include="Areas\API\APIAreaRegistration.cs" />
     <Compile Include="Areas\API\Controllers\AttendesController.cs" />
     <Compile Include="Areas\API\Controllers\AuthController.cs" />
+    <Compile Include="Areas\API\Controllers\EventController.cs" />
     <Compile Include="Areas\API\Controllers\QRCodesController.cs" />
     <Compile Include="Areas\API\Controllers\SponsorsController.cs" />
     <Compile Include="Base\BaseAPIController.cs" />
@@ -233,6 +234,7 @@
     <Folder Include="Areas\API\Models\" />
     <Folder Include="Areas\API\Views\Attendes\" />
     <Folder Include="Areas\API\Views\Auth\" />
+    <Folder Include="Areas\API\Views\Event\" />
     <Folder Include="Areas\API\Views\QRCodes\" />
     <Folder Include="Areas\API\Views\Shared\" />
     <Folder Include="Areas\API\Views\Sponsors\" />

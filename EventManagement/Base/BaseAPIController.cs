@@ -15,9 +15,13 @@ namespace EventManagement.Base
         {
             Helpers.LogError("API Error: ", filterContext.Exception);
             var apiexception = filterContext.Exception as APIException;
+            string message = "sorry, an occured while processing your request.";
+            if (apiexception != null)
+                message = apiexception.Message;
+            
             filterContext.Result = new JsonResult
             {
-                Data = new { error = "sorry, an occured while processing your request." }
+                Data = new { error = message }
                 ,JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
             filterContext.ExceptionHandled = true;

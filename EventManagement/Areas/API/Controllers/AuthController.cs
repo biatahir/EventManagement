@@ -11,9 +11,9 @@ namespace EventManagement.Areas.API.Controllers
     {
         // GET: API/Auth
 
-        public ActionResult Login(string email, string passowrd)
+        public ActionResult Login(string email, string password)
         {
-            if(email == "nabiha" && passowrd == "pass")
+            if(email == "nabiha" && password == "pass")
                 return Json(new { Success = "Logged in success have auth token:122313" });
             else
                 return Json(new { Success = "login faild no token for you" });

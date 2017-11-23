@@ -19,7 +19,7 @@ namespace EventManagement.Areas.API.Controllers
             AttendesLogic attendesBusiness = new AttendesLogic();
             return Json(new { data = await attendesBusiness.GetAttendes() });
         }
-        public ActionResult UploadAttendiImage(HttpPostedFileBase image)
+        public ActionResult UploadAttendeeImage(HttpPostedFileBase image)
         {
             if (image != null)
             {
@@ -28,6 +28,16 @@ namespace EventManagement.Areas.API.Controllers
                 return Json(new { Data = "Image upload Successfuly" });
             }
             return Json(new { Data = "Image Upload Failed" });
+        }
+        public ActionResult UploadAttendeeVideo(HttpPostedFileBase video)
+        {
+            if (video !=null)
+            {
+                var path = Path.Combine(VideoSavePath, video.FileName);
+                    video.SaveAs(path);
+                return Json(new { Data = "video Uploaded  Successfully"});
+            }
+            return Json(new { Data = "video Uploaded  Failed" });
         }
     }
 }

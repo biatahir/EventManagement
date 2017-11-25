@@ -236,6 +236,7 @@
     <Folder Include="Areas\API\Models\" />
     <Folder Include="Areas\API\Views\Attendes\" />
     <Folder Include="Areas\API\Views\Auth\" />
+    <Folder Include="Areas\API\Views\EmailValidation\" />
     <Folder Include="Areas\API\Views\Event\" />
     <Folder Include="Areas\API\Views\QRCodes\" />
     <Folder Include="Areas\API\Views\Shared\" />

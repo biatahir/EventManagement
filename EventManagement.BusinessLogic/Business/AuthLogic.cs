@@ -18,10 +18,18 @@ namespace EventManagement.BusinessLogic.Business
         #endregion 
 
         #region api code
-        public void AttendiLogic(string email,string password)
+        public void AttendiLogin(string email,string password)
         {
 
-        }  
+        }
+        public object EmailExist(string email)
+        {
+            if(email == "nabiha@gmail.com")
+                return new { Data = "Email Exist" };
+            else
+                return new { Data = "Email Dost not exist" };
+        }
+      
         public UserSession CheckSession(string Token)
         {
             return Db.UserSessions.FirstOrDefault(x => x.AuthToken == Token);

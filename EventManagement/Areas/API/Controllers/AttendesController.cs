@@ -1,4 +1,5 @@
 ﻿using EventManagement.BusinessLogic.Business;
+using EventManagement.BusinessLogic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,15 @@ namespace EventManagement.Areas.API.Controllers
         // GET: API/Attendes
         public async Task<ActionResult> Index()
         {
-            AttendesLogic attendesBusiness = new AttendesLogic();            
-            return Json(new { data = await attendesBusiness.GetAttendes()    });
+            AttendesLogic attendesBusiness = new AttendesLogic();
+            return Json(new { data = await attendesBusiness.GetAttendes() });
+        }
+
+        [HttpGet]
+        public ActionResult GetAttendeeForSpecificEvent(Int32? EventId)
+        {
+            AttendesLogic attendesBusiness = new AttendesLogic();
+            return Json(new { data = attendesBusiness.GetAttendeeForSpecificEvent(EventId.HasValue ? EventId.Value : 1) }, JsonRequestBehavior.AllowGet);
         }
     }
 }

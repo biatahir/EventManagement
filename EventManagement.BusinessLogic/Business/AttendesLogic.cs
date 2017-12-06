@@ -10,23 +10,47 @@ using EventManagement.BusinessLogic.Models;
 
 namespace EventManagement.BusinessLogic.Business
 {
-   public class AttendesLogic:BaseLogic
+    public class AttendesLogic : BaseLogic
     {
-        //testinfnsdfsdf
-        public async Task<List<AttendesDTO>> GetAttendes() {
-            return await Db.Attendes.Select(x=>new AttendesDTO {
-                 ID = x.ID,
-                  AddedBY = x.AddedBY,
-                   AddedON = x.AddedON, 
-                   Description = x.Description,
-                   DeviceToken = x.DeviceToken,
-                   FacebookURL = x.FacebookURL,
-                   InstagramURL = x.InstagramURL,
-                   Name = x.Name,
-                   Status = x.Status,
-                   Thumbnail = x.Thumbnail,
-                   TwitterURL = x.TwitterURL,               
+        public async Task<List<AttendesDTO>> GetAttendes()
+        {
+            return await Db.Attendes.Select(x => new AttendesDTO
+            {
+                ID = x.ID,
+                AddedBY = x.AddedBY,
+                AddedON = x.AddedON,
+                Description = x.Description,
+                DeviceToken = x.DeviceToken,
+                FacebookURL = x.FacebookURL,
+                InstagramURL = x.InstagramURL,
+                Name = x.Name,
+                Status = x.Status,
+                Thumbnail = x.Thumbnail,
+                TwitterURL = x.TwitterURL,
             }).ToListAsync();
+        }
+        public List<AttendesDTO> GetAttendeeForSpecificEvent(Int32 EventId)
+        {
+            List<AttendesDTO> Data = (from a in Db.Attendes
+                                      join ae in Db.AttendesEvents on a.ID equals ae.AttendesID
+                                      join e in Db.Events on ae.EventID equals e.ID
+                                      where e.ID == EventId
+                                      select a).ToList().AsEnumerable().Select(x => new AttendesDTO
+                                      {
+                                          ID = x.ID,
+                                          AddedBY = x.AddedBY,
+                                          AddedON = x.AddedON,
+                                          Description = x.Description,
+                                          DeviceToken = x.DeviceToken,
+                                          FacebookURL = x.FacebookURL,
+                                          InstagramURL = x.InstagramURL,
+                                          Name = x.Name,
+                                          Status = x.Status,
+                                          Thumbnail = x.Thumbnail,
+                                          TwitterURL = x.TwitterURL,
+                                      }).ToList();
+            return Data.Distinct().ToList();
+            
         }
     }
 }

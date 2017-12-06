@@ -69,6 +69,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -168,6 +169,8 @@
     <Compile Include="Areas\API\Controllers\AttendesController.cs" />
     <Compile Include="Areas\API\Controllers\AuthController.cs" />
     <Compile Include="Areas\API\Controllers\SponsorsController.cs" />
+    <Compile Include="Areas\API\Models\Authentication\AuthenticationModel.cs" />
+    <Compile Include="Areas\API\Models\BaseModel.cs" />
     <Compile Include="Base\BaseAPIController.cs" />
     <Compile Include="Base\BaseController.cs" />
     <Compile Include="Base\BaseWebController.cs" />
@@ -220,7 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\API\Models\" />
     <Folder Include="Areas\API\Views\Attendes\" />
     <Folder Include="Areas\API\Views\Auth\" />
     <Folder Include="Areas\API\Views\Shared\" />

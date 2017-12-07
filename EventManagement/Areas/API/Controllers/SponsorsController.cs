@@ -1,4 +1,6 @@
-﻿using EventManagement.BusinessLogic.Business;
+﻿using EventManagement.Base;
+using EventManagement.BusinessLogic.Business;
+using EventManagement.Filter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +10,10 @@ using System.Web.Mvc;
 
 namespace EventManagement.Areas.API.Controllers
 {
-    public class SponsorsController : Controller
+    public class SponsorsController : BaseAPIController
     {
         // GET: API/Sponsors
-
+        [AuthFilter]
         public async Task<ActionResult> Index()
         {
             SponsorsLogic SponsorBusiness = new SponsorsLogic();

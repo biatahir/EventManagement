@@ -20,6 +20,7 @@ namespace EventManagement.DataAccess.DataBase.Model
             this.ForumSocialComments = new HashSet<ForumSocialComment>();
             this.Permissions = new HashSet<Permission>();
             this.UserEvent_Permission = new HashSet<UserEvent_Permission>();
+            this.UserSessions = new HashSet<UserSession>();
         }
     
         public int Id { get; set; }
@@ -35,5 +36,7 @@ namespace EventManagement.DataAccess.DataBase.Model
         public virtual ICollection<Permission> Permissions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserEvent_Permission> UserEvent_Permission { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserSession> UserSessions { get; set; }
     }
 }

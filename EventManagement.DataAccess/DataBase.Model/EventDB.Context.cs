@@ -48,5 +48,6 @@ namespace EventManagement.DataAccess.DataBase.Model
         public virtual DbSet<SponsorsEvent> SponsorsEvents { get; set; }
         public virtual DbSet<Theme> Themes { get; set; }
         public virtual DbSet<UserEvent_Permission> UserEvent_Permission { get; set; }
+        public virtual DbSet<UserSession> UserSessions { get; set; }
     }
 }

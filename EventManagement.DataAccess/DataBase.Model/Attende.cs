@@ -24,6 +24,7 @@ namespace EventManagement.DataAccess.DataBase.Model
             this.PostUserLikes = new HashSet<PostUserLike>();
             this.QRHistories = new HashSet<QRHistory>();
             this.SocialForums = new HashSet<SocialForum>();
+            this.UserSessions = new HashSet<UserSession>();
         }
     
         public int ID { get; set; }
@@ -37,6 +38,7 @@ namespace EventManagement.DataAccess.DataBase.Model
         public Nullable<int> AddedBY { get; set; }
         public Nullable<bool> Status { get; set; }
         public string DeviceToken { get; set; }
+        public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AttendesEvent> AttendesEvents { get; set; }
@@ -52,5 +54,7 @@ namespace EventManagement.DataAccess.DataBase.Model
         public virtual ICollection<QRHistory> QRHistories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SocialForum> SocialForums { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserSession> UserSessions { get; set; }
     }
 }

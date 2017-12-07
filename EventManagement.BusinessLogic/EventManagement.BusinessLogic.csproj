@@ -48,7 +48,9 @@
     <Compile Include="Business\QRCodeLogic.cs" />
     <Compile Include="Business\SponsorsLogic.cs" />
     <Compile Include="Business\BaseLogic.cs" />
+    <Compile Include="Models\ActivityDTO.cs" />
     <Compile Include="Models\AttendesDTO.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\SponsorsDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

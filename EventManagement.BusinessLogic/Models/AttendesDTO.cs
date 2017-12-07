@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventManagement.Areas.API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EventManagement.BusinessLogic.Models
 {
-    public class AttendesDTO
+    public class AttendesDTO : BaseModel
     {
         public int ID { get; set; }
         public string Name { get; set; }

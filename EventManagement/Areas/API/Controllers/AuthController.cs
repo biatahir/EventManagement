@@ -15,7 +15,6 @@ namespace EventManagement.Areas.API.Controllers
     public class AuthController : BaseAPIController
     {
         // GET: API/Auth
-
         public ActionResult Login(string email, string passowrd)
         {
             if (email == "nabiha" && passowrd == "pass")

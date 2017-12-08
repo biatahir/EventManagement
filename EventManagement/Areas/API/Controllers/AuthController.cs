@@ -32,7 +32,7 @@ namespace EventManagement.Areas.API.Controllers
             {
                 AuthenticationModel ParsedData = new JavaScriptSerializer().Deserialize<AuthenticationModel>(_sPostedata);
                 if (ParsedData != null)
-                {
+                {   
                     if (ParsedData.Email == "nabiha@adad.com")
                     {
                         RetVal.Status = HttpStatusCode.OK;

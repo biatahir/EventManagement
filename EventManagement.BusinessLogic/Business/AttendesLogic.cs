@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using EventManagement.BusinessLogic.Models;
+using EventManagement.BusinessLogic.Models.AttendeesByEventId;
+using System.Net;
 
 namespace EventManagement.BusinessLogic.Business
 {
@@ -50,7 +52,27 @@ namespace EventManagement.BusinessLogic.Business
                                           TwitterURL = x.TwitterURL,
                                       }).ToList();
             return Data.Distinct().ToList();
-            
+        }
+        public List<AttendesDTO> GetAttendeByID()
+        {
+            AttendeesByEventID AttendeById = new AttendeesByEventID();
+            if (AttendeById != null)
+            {
+              
+                AttendeById.Status = HttpStatusCode.OK;
+                AttendeById.Message = "Successful" ;
+            }
+            else
+            {
+                AttendeById.Status = HttpStatusCode.BadRequest;
+                AttendeById.Message = "Failed";
+            }
+            return json(new { data = AttendeById });
         }
     }
 }
+
+
+
+
+

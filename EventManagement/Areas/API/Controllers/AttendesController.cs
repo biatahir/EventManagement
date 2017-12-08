@@ -62,6 +62,9 @@ namespace EventManagement.Areas.API.Controllers
         {
             AttendesLogic attendesBusiness = new AttendesLogic();
             return Json(new { data = attendesBusiness.GetAttendeeForSpecificEvent(EventId.HasValue ? EventId.Value : 1) }, JsonRequestBehavior.AllowGet);
+           
+
+
         }
     }
 }

@@ -22,6 +22,9 @@ namespace EventManagement.BusinessLogic.Models
         public string DeviceToken { get; set; }
         public List<AttendeMessage> AttendeMessages { get; set; }
     }
+ 
+
+    
     public class AttendeMessage
     {
         public string Message { get; set; }

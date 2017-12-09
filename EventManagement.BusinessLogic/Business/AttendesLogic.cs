@@ -31,12 +31,13 @@ namespace EventManagement.BusinessLogic.Business
                 TwitterURL = x.TwitterURL,
             }).ToListAsync();
         }
-        public List<AttendesDTO> GetAttendeeForSpecificEvent(Int32 EventId)
+        public AttendeesModel GetAttendeeForSpecificEvent(string EventId)
         {
+            AttendeesModel AttendeById = new AttendeesModel();
             List<AttendesDTO> Data = (from a in Db.Attendes
                                       join ae in Db.AttendesEvents on a.ID equals ae.AttendesID
                                       join e in Db.Events on ae.EventID equals e.ID
-                                      where e.ID == EventId
+                                      where e.ID == Int32.Parse(EventId)
                                       select a).ToList().AsEnumerable().Select(x => new AttendesDTO
                                       {
                                           ID = x.ID,
@@ -51,23 +52,18 @@ namespace EventManagement.BusinessLogic.Business
                                           Thumbnail = x.Thumbnail,
                                           TwitterURL = x.TwitterURL,
                                       }).ToList();
-            return Data.Distinct().ToList();
-        }
-        public List<AttendesDTO> GetAttendeByID()
-        {
-            AttendeesByEventID AttendeById = new AttendeesByEventID();
-            if (AttendeById != null)
+            if (Data != null & Data.Count > 0)
             {
-              
+                AttendeById.Data = Data.Distinct().ToList();
                 AttendeById.Status = HttpStatusCode.OK;
-                AttendeById.Message = "Successful" ;
+                AttendeById.Message = "Successful";
             }
             else
             {
                 AttendeById.Status = HttpStatusCode.BadRequest;
                 AttendeById.Message = "Failed";
             }
-            return json(new { data = AttendeById });
+            return AttendeById;
         }
     }
 }

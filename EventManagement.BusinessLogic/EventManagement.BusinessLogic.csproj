@@ -49,10 +49,11 @@
     <Compile Include="Business\SponsorsLogic.cs" />
     <Compile Include="Business\BaseLogic.cs" />
     <Compile Include="Models\ActivityDTO.cs" />
-    <Compile Include="Models\AttendeesByEventId\AttendeesByEventID.cs" />
+    <Compile Include="Models\AttendeesByEventId\AttendeesModel.cs" />
     <Compile Include="Models\AttendesDTO.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\SponsorsDTO.cs" />
+    <Compile Include="Models\SponsorsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

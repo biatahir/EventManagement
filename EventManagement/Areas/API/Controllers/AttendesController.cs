@@ -57,14 +57,13 @@ namespace EventManagement.Areas.API.Controllers
             return Json(new { Data = "Image Upload Failed" });
         }
 
+
         [HttpGet]
         public ActionResult GetAttendeeForSpecificEvent(Int32? EventId)
         {
             AttendesLogic attendesBusiness = new AttendesLogic();
-            return Json(new { data = attendesBusiness.GetAttendeeForSpecificEvent(EventId.HasValue ? EventId.Value : 1) }, JsonRequestBehavior.AllowGet);
-           
-
-
+            return Json(attendesBusiness.GetAttendeeForSpecificEvent(EventId.HasValue ? EventId.Value.ToString() : "1"), JsonRequestBehavior.AllowGet);
         }
+
     }
 }

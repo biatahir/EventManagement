@@ -19,10 +19,12 @@ namespace EventManagement.Areas.API.Controllers
             SponsorsLogic SponsorBusiness = new SponsorsLogic();
             return Json(new { data = await SponsorBusiness.GetSponsors() });
         }
+        
+      [HttpGet]
         public ActionResult GetSponsorsForSpecificEvent(Int32? EventId)
         {
             SponsorsLogic SponsorBusiness = new SponsorsLogic();
-            return Json(new { data = SponsorBusiness.GetSponsorsForSpecificEvent(EventId.HasValue ? EventId.Value : 1) }, JsonRequestBehavior.AllowGet);
+            return Json(SponsorBusiness.GetSponsorsForSpecificEvent(EventId.HasValue ? EventId.Value.ToString() : "1"), JsonRequestBehavior.AllowGet);
         }
     }
 

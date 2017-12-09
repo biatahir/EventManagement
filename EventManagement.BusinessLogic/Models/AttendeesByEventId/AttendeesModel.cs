@@ -7,9 +7,14 @@ using System.Threading.Tasks;
 
 namespace EventManagement.BusinessLogic.Models.AttendeesByEventId
 {
-    public class AttendeesByEventID : BaseModel
+    public class AttendeesModel : BaseModel
     {
-        List<AttendesDTO> Data = new List<AttendesDTO>();
+        public List<AttendesDTO> Data { get; set; }
+
+        public AttendeesModel()
+        {
+            Data = new List<AttendesDTO>();
+        }
 
     }
 }
